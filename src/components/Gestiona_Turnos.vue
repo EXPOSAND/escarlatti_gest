@@ -24,12 +24,15 @@ activos asociados para evitar "huérfanos" en la base de datos.
                 <button @click="crearTurnos">Confirmar Alta</button>
             </div>
             <div v-if="menus.editar" class="menu">
-                Elija el ID del turno a editar: <select v-model="turno.id">
+                Elija el ID del turno a editar: 
+                <select v-model="turno.id">
                     <option value="" disabled> --------- </option>
                     <option v-for="turno in listaTurnos" :key="turno.id" :value="turno.id">
                         {{ turno.id }} - {{ turno.nombre }}
                     </option>
                 </select><br><br>
+                Nombre :<input v-model="turno.nombre" type="text" /><br><br>
+                Horario de referencia :<input v-model="turno.horario_referencia" type="text" /><br><br>
                 <button @click="actualizarTurnos">Confirmar Edicion</button>
             </div>
 

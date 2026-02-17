@@ -19,7 +19,7 @@ organizar al profesorado por áreas didácticas.
             <div v-if="menus.crear" id="menu_crear">
                 <h3>Registrar Departamento</h3>
                 Nombre del Departamento: <input v-model="departamento.nombre" type="text" /><br><br>
-                Ubicacion: <input v-model="departamento.ubicacion_planta" type="text" /><br><br>
+                Ubicacion: <input v-model="departamento.ubicacion" type="text" /><br><br>
                 ID: <input v-model="departamento.id" type="number" /><br><br>
                 Correo de contacto: <input v-model="departamento.correo_contacto" type="email" /><br><br>
                 <button @click="crearDepartamentos">Confirmar Alta</button>

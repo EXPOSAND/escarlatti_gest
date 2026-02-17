@@ -38,6 +38,15 @@ lugares donde se pueden realizar reservas e incidencias.
                         {{ espacio.nombre }}
                     </option>
                 </select><br><br>
+                Nombre del Espacio: <input v-model="espacio.nombre" type="text" /><br><br>
+                Ubicacion: <input v-model="espacio.ubicacion_planta" type="text" /><br><br>
+                Capacidad Maxima: <input v-model="espacio.capacidad_max" type="number" /><br><br>
+                Equipamiento: <input v-model="espacio.equipamiento" type="text" /><br><br>
+                Estado Operativo:
+                <select v-model="espacio.estado_operativo">
+                    <option value="true">Operativo</option>
+                    <option value="false">No operativo</option>
+                </select><br><br>
                 <button @click="actualizarEspacios">Confirmar Edicion</button>
             </div>
 

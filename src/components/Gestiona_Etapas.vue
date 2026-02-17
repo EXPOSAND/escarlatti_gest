@@ -1,6 +1,6 @@
 <template>
 
-<!--
+    <!--
 
 H8.- Como ADMINISTRADOR quiero poder gestionar las ETAPAS EDUCATIVAS para
 categorizar los niveles de enseñanza del centro.
@@ -27,17 +27,20 @@ oficial por ley educativa.
                 Nombre de la Etapa: <input v-model="etapa.nombre" type="text" /><br><br>
                 Descripción: <input v-model="etapa.descripcion" type="text" /><br><br>
                 ID: <input v-model="etapa.id" type="number" /><br><br>
-                <button @click="crearEtapa">Confirmar Alta</button>
+                <button @click="crearEtapas">Confirmar Alta</button>
             </div>
 
             <div v-if="menus.editar" class="menu">
-                Elija el ID de la etapa a editar: <select v-model="etapa.id">
+                Elija el ID de la etapa a editar:
+                <select v-model="etapa.id">
                     <option value="" disabled> --------- </option>
                     <option v-for="etapa in listaEtapas" :key="etapa.id" :value="etapa.id">
                         {{ etapa.nombre }}
                     </option>
                 </select><br><br>
-                <button @click="actualizarEtapa">Confirmar Edicion</button>
+                Nombre de la Etapa: <input v-model="etapa.nombre" type="text" /><br><br>
+                Descripción: <input v-model="etapa.descripcion" type="text" /><br><br>
+                <button @click="actualizarEtapas">Confirmar Edicion</button>
             </div>
 
             <div v-if="menus.borrar" class="menu">

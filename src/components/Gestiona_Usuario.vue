@@ -94,8 +94,8 @@ export default {
                 password_hash: "",
                 rol_id: "",
                 ref_identidad_fk: "",
-                estado_id: null,
-                ultimo_acceso: null
+                estado_id: "",
+                ultimo_acceso: ""
             },
             listaUsuarios: [],
             rolesUsuario: [], //De aqui me va a sacar los select del form
@@ -135,6 +135,8 @@ export default {
                 return;
             }
 
+            this.usuario.ultimo_acceso = new Date().toISOString(); // Asignamos la fecha actual al campo ultimo_acceso
+
             fetch(this.url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -150,8 +152,7 @@ export default {
                     this.verUsuarios();
                     this.mostrarMenu('crear'); //Cambio el metodo a false para que no se muestre el formulario de creacio de primeras
 
-                })
-                .catch(err => alert("Error: " + (err.mensaje || "El DNI/NIA debe existir en la tabla de Profesores o Alumnos")));
+                }).catch(err => alert("Error: " + (err.mensaje || "El DNI/NIA debe existir en la tabla de Profesores o Alumnos")));
         },
 
         verUsuarios() {
@@ -166,7 +167,9 @@ export default {
             this.usuario.login = "";
             this.usuario.password_hash = "";
             this.usuario.ref_identidad_fk = "";
-            // Mantenemos el estado_id en "Activo"
+            this.usuario.estado_id = 1; // Mantenemos el estado_id en "Activo"
+            this.usuario.rol_id = "";
+            this.usuario.ultimo_acceso = null;
         },
 
         actualizarUsuarios() {
